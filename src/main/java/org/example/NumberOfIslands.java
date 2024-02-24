@@ -2,7 +2,11 @@ package org.example;
 
 import java.util.Arrays;
 
+//OK
 public class NumberOfIslands {
+
+    static int counter = 0;
+
     public int numIslands(char[][] grid) {
         if (grid == null || grid.length == 0) {
             return 0;
@@ -28,9 +32,12 @@ public class NumberOfIslands {
         int rows = grid.length;
         int cols = grid[0].length;
 
+        counter++;
+
         if (row < 0 || col < 0 || row >= rows || col >= cols || grid[row][col] == '0') {
             return;
         }
+
 
         grid[row][col] = '0'; // Mark as visited
 
@@ -51,6 +58,7 @@ public class NumberOfIslands {
         NumberOfIslands solution = new NumberOfIslands();
         int numIslands = solution.numIslands(grid);
         System.out.println("Number of islands: " + numIslands);
+        System.out.println("Counter: " + counter);
         System.out.println(Arrays.deepToString(grid));
     }
 }

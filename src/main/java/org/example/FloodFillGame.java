@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class FloodFillGame extends JFrame implements ActionListener {
     private static final int GRID_SIZE = 6;
-    private static final int MAX_MOVES = 6;
+    private static final int MAX_MOVES = 9;
 
     private static final List<Color> colors = Arrays.asList(Color.RED,
             Color.GREEN,
@@ -99,11 +99,11 @@ public class FloodFillGame extends JFrame implements ActionListener {
             floodFill(0, 0, gridButtons[0][0].getBackground(), replacementColor);
             movesLeft--;
             setTitle("Moves Left: " + movesLeft);
-            if (movesLeft == 0) {
-                JOptionPane.showMessageDialog(this, "Game Over!");
-                resetGame();
-            } else if (checkWinCondition()) {
+            if (checkWinCondition()) {
                 JOptionPane.showMessageDialog(this, "You Win!");
+                resetGame();
+            }else if (movesLeft == 0) {
+                JOptionPane.showMessageDialog(this, "Game Over!");
                 resetGame();
             }
         }

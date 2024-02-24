@@ -3,7 +3,9 @@ package org.example;
 import java.util.LinkedList;
 import java.util.Queue;
 
+//OK
 public class KnightShortestPath {
+
     public int shortestPath(int[] start, int[] end) {
         int[][] directions = {
                 {-2, -1}, {-1, -2}, {1, -2}, {2, -1},

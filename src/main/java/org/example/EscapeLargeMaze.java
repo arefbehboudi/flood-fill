@@ -5,8 +5,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
+//OK
 public class EscapeLargeMaze {
-    private static final int MAX_SIZE = 1000000;
+    private static final int MAX_SIZE = 100;
 
     public boolean isEscapePossible(int[][] blocked, int[] source, int[] target) {
         Set<String> blockedSet = new HashSet<>();
@@ -36,7 +37,8 @@ public class EscapeLargeMaze {
                 int y = current[1] + dir[1];
                 String key = x + "," + y;
 
-                if (x >= 0 && x < MAX_SIZE && y >= 0 && y < MAX_SIZE && !blockedSet.contains(key) && !visited.contains(key)) {
+                if (x >= 0 && x < MAX_SIZE && y >= 0 && y < MAX_SIZE &&
+                        !blockedSet.contains(key) && !visited.contains(key)) {
                     queue.offer(new int[]{x, y});
                     visited.add(key);
                 }
@@ -51,7 +53,7 @@ public class EscapeLargeMaze {
     }
 
     public static void main(String[] args) {
-        int[][] blocked = {{1, 0}, {0, 1}, {1, 1}};
+        int[][] blocked = {{0, 1}, {1, 1}};
         int[] source = {0, 0};
         int[] target = {0, 2};
 

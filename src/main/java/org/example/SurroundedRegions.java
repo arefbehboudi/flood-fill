@@ -1,6 +1,8 @@
 package org.example;
 
 public class SurroundedRegions {
+    static int counter;
+
     public void solve(char[][] board) {
         if (board == null || board.length == 0) {
             return;
@@ -31,9 +33,13 @@ public class SurroundedRegions {
     }
 
     private void dfs(char[][] board, int row, int col) {
+
+        counter++;
+
         if (row < 0 || row >= board.length || col < 0 || col >= board[0].length || board[row][col] != 'O') {
             return;
         }
+
 
         board[row][col] = '*'; // Mark as visited
 
@@ -54,6 +60,8 @@ public class SurroundedRegions {
 
         SurroundedRegions solution = new SurroundedRegions();
         solution.solve(board);
+
+        System.out.println("Counter:" + counter);
 
         // Print the updated board
         for (char[] row : board) {
